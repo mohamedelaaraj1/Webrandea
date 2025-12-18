@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, Loader2 } from 'lucide-react';
 import { GoogleGenAI } from "@google/genai";
@@ -50,7 +49,7 @@ const AIChat: React.FC = () => {
       1. SaaS Prototype & Design System (Figma)
       2. Website Development (WordPress/WIX/Custom Code)
       3. UI/UX Design
-      4. Functional SaaS App Dev (Bubble/Fig AI)
+      4. Functional SaaS App Dev (Bubble/No-code)
       5. Branding Identity
       6. Social Media Marketing
       7. Dedicated Account Management
@@ -63,7 +62,7 @@ const AIChat: React.FC = () => {
       Keep answers concise (under 3 sentences usually).`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        model: 'gemini-3-flash-preview',
         contents: [
             ...messages.filter(m => m.id !== 'welcome').map(m => ({
                 role: m.role,
