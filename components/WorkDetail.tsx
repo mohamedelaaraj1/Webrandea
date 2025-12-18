@@ -1,5 +1,5 @@
 import React from 'react';
-import { Work } from '../types';
+import { Work } from '../types.ts';
 import { ArrowLeft, CheckCircle2, Cpu, BarChart } from 'lucide-react';
 
 interface WorkDetailProps {
@@ -18,7 +18,7 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work, onBack }) => {
           className="flex items-center text-gray-400 hover:text-white mb-8 transition-colors text-sm font-medium"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Works
+          Back to Case Studies
         </button>
         
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -52,7 +52,7 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work, onBack }) => {
               <div className="bg-dark-card border border-dark-border p-6 rounded-xl">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <span className="w-2 h-8 bg-red-500 rounded-full mr-3"></span>
-                  The Challenge
+                  The Problem
                 </h3>
                 <p className="text-gray-400 leading-relaxed text-sm">
                   {work.challenge}
@@ -61,7 +61,7 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work, onBack }) => {
               <div className="bg-dark-card border border-dark-border p-6 rounded-xl">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <span className="w-2 h-8 bg-brand-500 rounded-full mr-3"></span>
-                  The Solution
+                  Our Strategy
                 </h3>
                 <p className="text-gray-400 leading-relaxed text-sm">
                   {work.solution}
@@ -71,7 +71,7 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work, onBack }) => {
 
             {/* Process Steps */}
             <div>
-              <h2 className="text-2xl font-bold text-white mb-8">How We Did It</h2>
+              <h2 className="text-2xl font-bold text-white mb-8">Service Execution</h2>
               <div className="space-y-6">
                 {work.process.map((step, index) => (
                   <div key={index} className="flex group">
@@ -98,7 +98,7 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work, onBack }) => {
             {/* Results */}
             <div className="bg-dark-card border border-dark-border rounded-xl p-6">
               <h3 className="text-lg font-bold text-white mb-6 flex items-center">
-                <BarChart className="w-5 h-5 mr-2 text-brand-400" /> Key Results
+                <BarChart className="w-5 h-5 mr-2 text-brand-400" /> Outcomes
               </h3>
               <ul className="space-y-4">
                 {work.results.map((result, i) => (
@@ -110,10 +110,10 @@ const WorkDetail: React.FC<WorkDetailProps> = ({ work, onBack }) => {
               </ul>
             </div>
 
-            {/* Tech Stack */}
+            {/* Methods */}
             <div className="bg-dark-card border border-dark-border rounded-xl p-6">
               <h3 className="text-lg font-bold text-white mb-6 flex items-center">
-                <Cpu className="w-5 h-5 mr-2 text-blue-400" /> Tech Stack
+                <Cpu className="w-5 h-5 mr-2 text-blue-400" /> Security Methods
               </h3>
               <div className="flex flex-wrap gap-2">
                 {work.technologies.map((tech, i) => (

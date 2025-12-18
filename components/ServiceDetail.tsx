@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Service, ServicePackage } from '../types';
+import { Service, ServicePackage } from '../types.ts';
 import { Check, ChevronDown, ChevronUp, Flag, Shield, Send, MessageCircle, X } from 'lucide-react';
 
 interface ServiceDetailProps {
@@ -14,7 +14,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Thank you! We received your request for the ${service.name} (${selectedPackage} package). We will contact you at ${formData.email} shortly.`);
+    alert(`Thank you! We received your request for ${service.name} (${selectedPackage} package). We will contact you at ${formData.email} shortly.`);
     setIsModalOpen(false);
     setFormData({ name: '', email: '', message: '' });
   };
@@ -74,34 +74,34 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Full Name</label>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2">In-Game Name</label>
                 <input 
                   type="text" 
                   required
                   className="w-full bg-[#0f1115] border border-dark-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
-                  placeholder="Jane Smith"
+                  placeholder="Summoner#EUW"
                   value={formData.name}
                   onChange={e => setFormData({...formData, name: e.target.value})}
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Business Email</label>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Contact Email</label>
                 <input 
                   type="email" 
                   required
                   className="w-full bg-[#0f1115] border border-dark-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
-                  placeholder="jane@growth.com"
+                  placeholder="gamer@gmail.com"
                   value={formData.email}
                   onChange={e => setFormData({...formData, email: e.target.value})}
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Tell us about your project</label>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Special Requests</label>
                 <textarea 
                   required
                   rows={4}
                   className="w-full bg-[#0f1115] border border-dark-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors resize-none"
-                  placeholder="What are your goals and timeline?"
+                  placeholder="e.g., Specific agents/champions, play times..."
                   value={formData.message}
                   onChange={e => setFormData({...formData, message: e.target.value})}
                 ></textarea>
@@ -123,7 +123,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
             <div>
                 <div className="inline-flex items-center space-x-2 bg-brand-900/30 border border-brand-500/30 rounded-full px-3 py-1 mb-6">
                     <service.icon className={`w-4 h-4 ${service.color}`} />
-                    <span className={`text-xs font-bold ${service.color} uppercase`}>Premium Service</span>
+                    <span className={`text-xs font-bold ${service.color} uppercase`}>Premium Gaming Service</span>
                 </div>
                 <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
                     {service.name}
@@ -138,24 +138,24 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
                     className="bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-brand-500/20 flex items-center justify-center"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
-                    Contact Us
+                    Contact Support
                   </button>
                   <a 
                     href="#pricing"
                     className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center"
                   >
-                    View Pricing
+                    View Packages
                   </a>
                 </div>
 
                 <div className="flex items-center space-x-6 text-sm text-gray-400">
                     <div className="flex items-center">
                         <Shield className="w-4 h-4 mr-2 text-green-400" />
-                        Money-back Guarantee
+                        Safe & Secure
                     </div>
                     <div className="flex items-center">
                         <Flag className="w-4 h-4 mr-2 text-blue-400" />
-                        Verified Experts
+                        Elite Boosters
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
 
         {/* Process Section */}
         <div className="mb-20">
-            <h2 className="text-3xl font-bold text-white mb-10 text-center">How We Work</h2>
+            <h2 className="text-3xl font-bold text-white mb-10 text-center">Our Process</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {service.process.map((step) => (
                     <div key={step.step} className="bg-dark-card border border-dark-border p-6 rounded-xl relative">
@@ -183,8 +183,8 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
 
         {/* Pricing */}
         <div className="mb-20" id="pricing">
-            <h2 className="text-3xl font-bold text-white mb-4 text-center">Simple Pricing</h2>
-            <p className="text-gray-400 text-center mb-10">Choose the package that fits your stage of growth.</p>
+            <h2 className="text-3xl font-bold text-white mb-4 text-center">Simple Packages</h2>
+            <p className="text-gray-400 text-center mb-10">Select your current rank range to get started.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 <PackageCard type="basic" pkg={service.packages.basic} />
                 <PackageCard type="advanced" pkg={service.packages.advanced} />
@@ -221,38 +221,38 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
             <div className="bg-dark-card border border-dark-border rounded-2xl p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-600/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
                 
-                <h2 className="text-2xl font-bold text-white mb-2">Get Started Now</h2>
+                <h2 className="text-2xl font-bold text-white mb-2">Order Now</h2>
                 <p className="text-gray-400 text-sm mb-6">You selected the <span className="text-brand-400 font-bold">{selectedPackage.toUpperCase()}</span> package.</p>
                 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Full Name</label>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">In-Game Name</label>
                         <input 
                             type="text" 
                             required
                             className="w-full bg-[#0f1115] border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
-                            placeholder="John Doe"
+                            placeholder="Gamer#123"
                             value={formData.name}
                             onChange={e => setFormData({...formData, name: e.target.value})}
                         />
                     </div>
                     <div>
-                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Business Email</label>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Email</label>
                         <input 
                             type="email" 
                             required
                             className="w-full bg-[#0f1115] border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
-                            placeholder="john@company.com"
+                            placeholder="you@email.com"
                             value={formData.email}
                             onChange={e => setFormData({...formData, email: e.target.value})}
                         />
                     </div>
                     <div>
-                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Project Details</label>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Details</label>
                         <textarea 
                             rows={4}
                             className="w-full bg-[#0f1115] border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
-                            placeholder="Tell us a bit about your goals..."
+                            placeholder="Current rank, server, etc."
                             value={formData.message}
                             onChange={e => setFormData({...formData, message: e.target.value})}
                         ></textarea>
@@ -261,10 +261,10 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
                         type="submit"
                         className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-brand-500/20 flex items-center justify-center group"
                     >
-                        Request Consultation <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        Place Order <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </button>
                     <p className="text-xs text-center text-gray-500 mt-4">
-                        By submitting, you agree to our Terms. No payment required yet.
+                        Payments are processed securely via Stripe.
                     </p>
                 </form>
             </div>
