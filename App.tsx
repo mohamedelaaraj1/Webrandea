@@ -1,16 +1,17 @@
+
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ServicesGrid from './components/GamesGrid'; 
-import Features from './components/Features';
-import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
-import AIChat from './components/AIChat';
-import ServiceDetail from './components/ServiceDetail';
-import Works from './components/Works';
-import WorkDetail from './components/WorkDetail';
-import { Service, Work } from './types';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import ServicesGrid from './components/GamesGrid.tsx'; 
+import Features from './components/Features.tsx';
+import Testimonials from './components/Testimonials.tsx';
+import FAQ from './components/FAQ.tsx';
+import Footer from './components/Footer.tsx';
+import AIChat from './components/AIChat.tsx';
+import ServiceDetail from './components/ServiceDetail.tsx';
+import Works from './components/Works.tsx';
+import WorkDetail from './components/WorkDetail.tsx';
+import { Service, Work } from './types.ts';
 
 type View = 'home' | 'works';
 

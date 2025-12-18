@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown, User, ShoppingBag } from 'lucide-react';
-import { SERVICES } from '../constants';
-import { Service } from '../types';
+import { SERVICES } from '../constants.ts';
+import { Service } from '../types.ts';
 
 interface NavbarProps {
   onSelectService: (service: Service) => void;

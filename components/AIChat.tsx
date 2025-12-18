@@ -1,7 +1,8 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, Loader2 } from 'lucide-react';
 import { GoogleGenAI } from "@google/genai";
-import { ChatMessage } from '../types';
+import { ChatMessage } from '../types.ts';
 
 const AIChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

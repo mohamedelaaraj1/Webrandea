@@ -1,6 +1,7 @@
+
 import React from 'react';
-import { WORKS } from '../constants';
-import { Work } from '../types';
+import { WORKS } from '../constants.ts';
+import { Work } from '../types.ts';
 import { ArrowRight, Layers } from 'lucide-react';
 
 interface WorksProps {

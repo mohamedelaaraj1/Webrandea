@@ -1,7 +1,8 @@
+
 import React from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES } from '../constants.ts';
 import { ArrowUpRight } from 'lucide-react';
-import { Service } from '../types';
+import { Service } from '../types.ts';
 
 interface ServicesGridProps {
   onSelectService: (service: Service) => void;
